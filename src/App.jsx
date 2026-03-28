@@ -1,12 +1,5 @@
 import React, { useState } from "react";
 
-/* ================= ASSET IMPORTS ================= */
-import heroVideo from "./assets/video.mp4";
-import img1 from "./assets/img1.jpeg";
-import img2 from "./assets/img2.jpeg";
-import img3 from "./assets/img3.jpeg";
-import img4 from "./assets/img4.jpeg";
-
 /* ================= APP ROOT ================= */
 export default function App() {
   return (
@@ -36,23 +29,8 @@ function Header() {
           className="lg:hidden text-gray-300 hover:text-white transition"
           aria-label="Toggle navigation menu"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={
-                isMenuOpen
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M4 6h16M4 12h16M4 18h16"
-              }
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
           </svg>
         </button>
 
@@ -64,7 +42,7 @@ function Header() {
         </nav>
       </div>
 
-      <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden border-t border-gray-800 bg-black/95 px-6 py-4`}>
+      <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden border-t border-gray-800 bg-black/95 px-6 py-4`}> 
         <nav className="space-y-3 text-center font-medium text-gray-300">
           <a href="#hero" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Home</a>
           <a href="#services" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Services</a>
@@ -80,22 +58,15 @@ function Header() {
 function Hero() {
   return (
     <section id="hero" className="relative flex items-center justify-center h-screen w-full overflow-hidden">
-      {/* VIDEO BACKGROUND (Desktop & Tablet) */}
+      {/* VIDEO BACKGROUND */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover hidden sm:block"
-        src={heroVideo}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="/video.mp4" // put video.mp4 in public folder
         autoPlay
         muted
         loop
         playsInline
       ></video>
-
-      {/* FALLBACK IMAGE (Mobile) */}
-      <img
-        className="absolute top-0 left-0 w-full h-full object-cover sm:hidden"
-        src={img1}
-        alt="Hero Background"
-      />
 
       {/* OVERLAY */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
@@ -142,12 +113,18 @@ function Services() {
   return (
     <section id="services" className="max-w-7xl mx-auto py-20 px-6 md:px-10">
       <h2 className="text-3xl font-bold text-blue-400 mb-10 text-center">Our Services</h2>
+
       <div className="flex flex-wrap justify-center gap-8">
         {services.map((s, i) => (
-          <div key={i} className="w-full max-w-sm flex-1 min-w-[240px] bg-gray-900 p-6 rounded-lg hover:shadow-xl transition">
+          <div
+            key={i}
+            className="w-full max-w-sm flex-1 min-w-[240px] bg-gray-900 p-6 rounded-lg hover:shadow-xl transition"
+          >
             <img src={s.img} className="w-full h-40 object-cover rounded mb-4" />
             <h3 className="font-semibold text-xl">{s.title}</h3>
-            <p className="text-gray-400 mt-2">Creative, modern, and sustainable solutions for your projects.</p>
+            <p className="text-gray-400 mt-2">
+              Creative, modern, and sustainable solutions for your projects.
+            </p>
           </div>
         ))}
       </div>
@@ -157,11 +134,12 @@ function Services() {
 
 /* ================= PROJECTS ================= */
 function Projects() {
-  const projects = [img1, img2, img3, img4];
+  const projects = ["/img1.jpeg", "/img2.jpeg", "/img3.jpeg", "/img4.jpeg"]; // images in public folder
 
   return (
     <section id="projects" className="bg-gray-900 py-20 px-6 md:px-10">
       <h2 className="text-3xl font-bold text-blue-400 mb-10 text-center">Our Projects</h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
         {projects.map((img, i) => (
           <img key={i} src={img} className="w-full h-60 object-cover rounded-lg shadow-lg" />
@@ -171,7 +149,7 @@ function Projects() {
   );
 }
 
-/* ================= CONTACT ================= */
+/* ================= CONTACT (Formspree) ================= */
 function Contact() {
   const [status, setStatus] = useState("");
 
@@ -201,15 +179,45 @@ function Contact() {
   return (
     <section id="contact" className="max-w-4xl mx-auto px-6 md:px-10 py-16 md:py-20">
       <h2 className="text-3xl font-bold mb-8 text-center text-blue-400">Contact Us</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-gray-900 p-6 md:p-8 rounded-lg shadow-lg">
-        <input type="text" name="name" placeholder="Full Name" className="border border-gray-700 p-3 rounded bg-transparent text-white" required />
-        <input type="email" name="email" placeholder="Email Address" className="border border-gray-700 p-3 rounded bg-transparent text-white" required />
-        <textarea name="message" placeholder="Your Message" className="border border-gray-700 p-3 rounded bg-transparent text-white" rows="6" required />
-        <button type="submit" className="bg-blue-400 hover:bg-blue-500 text-black font-semibold px-6 py-3 rounded transition transform hover:scale-105">
+
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 bg-gray-900 p-6 md:p-8 rounded-lg shadow-lg"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          className="border border-gray-700 p-3 rounded bg-transparent text-white"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          className="border border-gray-700 p-3 rounded bg-transparent text-white"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          className="border border-gray-700 p-3 rounded bg-transparent text-white"
+          rows="6"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          className="bg-blue-400 hover:bg-blue-500 text-black font-semibold px-6 py-3 rounded transition transform hover:scale-105"
+        >
           Send Message
         </button>
-        {status === "SUCCESS" && <p className="text-green-400 mt-4 font-semibold">Thank you! Your message has been sent.</p>}
-        {status === "ERROR" && <p className="text-red-400 mt-4 font-semibold">Oops! Something went wrong. Please try again.</p>}
+
+        {status === "SUCCESS" && (
+          <p className="text-green-400 mt-4 font-semibold">Thank you! Your message has been sent.</p>
+        )}
+        {status === "ERROR" && (
+          <p className="text-red-400 mt-4 font-semibold">Oops! Something went wrong. Please try again.</p>
+        )}
       </form>
     </section>
   );
