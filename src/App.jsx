@@ -54,45 +54,52 @@ function Header() {
   );
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (VIDEO BACKGROUND) ================= */
 function Hero() {
   return (
-    <section id="hero" className="flex flex-col-reverse gap-14 md:flex-row items-center max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
-      {/* LEFT CONTENT */}
-      <div className="flex-1 text-center md:text-left">
+    <section
+      id="hero"
+      className="relative flex items-center justify-center h-screen w-full overflow-hidden"
+    >
+      {/* VIDEO BACKGROUND */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="../public/video1.mp4" // replace with your own video
+        autoPlay
+        muted
+        loop
+        playsInline
+      ></video>
+
+      {/* OVERLAY */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+
+      {/* CONTENT */}
+      <div className="relative z-10 text-center md:text-left max-w-3xl px-6">
         <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
           Innovative Architecture
         </span>
-        <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight text-white">
           Designing Spaces <br /> That Inspire
         </h1>
-        <p className="mt-6 text-gray-400 text-lg max-w-lg">
+        <p className="mt-6 text-gray-200 text-lg">
           Shahi Architects delivers modern and sustainable architectural solutions with precision, creativity, and quality.
         </p>
 
-        <div className="mt-8 grid gap-4 sm:inline-flex sm:flex-wrap justify-center md:justify-start">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
           <a
             href="#contact"
-            className="w-full sm:w-auto bg-green-400 hover:bg-green-300 text-black px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
+            className="bg-green-400 hover:bg-green-300 text-black px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
           >
             Schedule a Consultation
           </a>
           <a
             href="#projects"
-            className="w-full sm:w-auto border border-gray-500 hover:border-white px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
+            className="border border-gray-500 hover:border-white px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center text-white"
           >
             View Projects
           </a>
         </div>
-      </div>
-
-      {/* RIGHT IMAGE / 3D PLACEHOLDER */}
-      <div className="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end">
-        <img
-          src="https://picsum.photos/500/400?random=31"
-          alt="Architect 3D Illustration"
-          className="w-full max-w-md rounded-lg shadow-xl"
-        />
       </div>
     </section>
   );
@@ -131,10 +138,10 @@ function Services() {
 /* ================= PROJECTS ================= */
 function Projects() {
   const projects = [
-    "https://picsum.photos/400/300?random=21",
-    "https://picsum.photos/400/300?random=22",
-    "https://picsum.photos/400/300?random=23",
-    "https://picsum.photos/400/300?random=24",
+    "../public/img1.jpeg",
+    "../public/img2.jpeg",
+    "../public/img3.jpeg",
+    "../public/img4.jpeg",
   ];
 
   return (
