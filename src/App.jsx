@@ -64,7 +64,7 @@ function Hero() {
       {/* VIDEO BACKGROUND */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="../public/video1.mp4" // replace with your own video
+        src="./assets/video.mp4" // replace with your own video
         autoPlay
         muted
         loop
@@ -138,10 +138,10 @@ function Services() {
 /* ================= PROJECTS ================= */
 function Projects() {
   const projects = [
-    "../public/img1.jpeg",
-    "../public/img2.jpeg",
-    "../public/img3.jpeg",
-    "../public/img4.jpeg",
+    "./assets/img1.jpeg",
+    "./assets/img2.jpeg",
+    "./assets/img3.jpeg",
+    "./assets/img4.jpeg",
   ];
 
   return (
