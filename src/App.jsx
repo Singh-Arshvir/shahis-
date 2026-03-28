@@ -61,7 +61,7 @@ function Hero() {
       {/* VIDEO BACKGROUND */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/video.mp4" // put video.mp4 in public folder
+        src="/video1.mp4" // put video.mp4 in public folder
         autoPlay
         muted
         loop
