@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
+/* ================= ASSET IMPORTS ================= */
+import heroVideo from "./assets/video.mp4";
+import img1 from "./assets/img1.jpeg";
+import img2 from "./assets/img2.jpeg";
+import img3 from "./assets/img3.jpeg";
+import img4 from "./assets/img4.jpeg";
+
 /* ================= APP ROOT ================= */
 export default function App() {
   return (
@@ -64,7 +71,7 @@ function Hero() {
       {/* VIDEO BACKGROUND */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="./assets/video.mp4" // replace with your own video
+        src={heroVideo}
         autoPlay
         muted
         loop
@@ -137,12 +144,7 @@ function Services() {
 
 /* ================= PROJECTS ================= */
 function Projects() {
-  const projects = [
-    "./assets/img1.jpeg",
-    "./assets/img2.jpeg",
-    "./assets/img3.jpeg",
-    "./assets/img4.jpeg",
-  ];
+  const projects = [img1, img2, img3, img4];
 
   return (
     <section id="projects" className="bg-gray-900 py-20 px-6 md:px-10">
@@ -159,7 +161,7 @@ function Projects() {
 
 /* ================= CONTACT (Formspree) ================= */
 function Contact() {
-  const [status, setStatus] = useState(""); // "" | "SUCCESS" | "ERROR"
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -220,7 +222,6 @@ function Contact() {
           Send Message
         </button>
 
-        {/* SUCCESS / ERROR MESSAGES */}
         {status === "SUCCESS" && (
           <p className="text-green-400 mt-4 font-semibold">Thank you! Your message has been sent.</p>
         )}
