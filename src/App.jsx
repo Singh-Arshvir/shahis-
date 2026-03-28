@@ -16,17 +16,40 @@ export default function App() {
 
 /* ================= HEADER ================= */
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center px-6 md:px-10 py-4 md:py-6 sticky top-0 z-50 bg-black shadow-md">
-      <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 md:mb-0">
-        SHAHI ARCHITECTS
-      </h1>
-      <nav className="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 font-medium text-gray-300">
-        <a href="#hero" className="hover:text-white transition">Home</a>
-        <a href="#services" className="hover:text-white transition">Services</a>
-        <a href="#projects" className="hover:text-white transition">Projects</a>
-        <a href="#contact" className="hover:text-white transition">Contact</a>
-      </nav>
+    <header className="relative sticky top-0 z-50 bg-black border-b border-gray-800">
+      <div className="flex items-center justify-between px-6 py-5 md:px-10">
+        <h1 className="text-2xl font-bold text-white">SHAHI ARCHITECTS</h1>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="lg:hidden text-gray-300 hover:text-white transition"
+          aria-label="Toggle navigation menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
+        </button>
+
+        <nav className="hidden lg:flex items-center space-x-6 font-medium text-gray-300">
+          <a href="#hero" className="hover:text-white transition">Home</a>
+          <a href="#services" className="hover:text-white transition">Services</a>
+          <a href="#projects" className="hover:text-white transition">Projects</a>
+          <a href="#contact" className="hover:text-white transition">Contact</a>
+        </nav>
+      </div>
+
+      <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden border-t border-gray-800 bg-black/95 px-6 py-4`}> 
+        <nav className="space-y-3 text-center font-medium text-gray-300">
+          <a href="#hero" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Home</a>
+          <a href="#services" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Services</a>
+          <a href="#projects" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Projects</a>
+          <a href="#contact" className="block hover:text-white transition" onClick={() => setIsMenuOpen(false)}>Contact</a>
+        </nav>
+      </div>
     </header>
   );
 }
@@ -34,44 +57,41 @@ function Header() {
 /* ================= HERO ================= */
 function Hero() {
   return (
-    <section
-      id="hero"
-      className="flex flex-col md:flex-row items-center max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 gap-10 md:gap-20"
-    >
+    <section id="hero" className="flex flex-col-reverse gap-14 md:flex-row items-center max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
       {/* LEFT CONTENT */}
       <div className="flex-1 text-center md:text-left">
-        <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm md:text-base">
+        <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
           Innovative Architecture
         </span>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-6 leading-tight">
+        <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight">
           Designing Spaces <br /> That Inspire
         </h1>
-        <p className="mt-6 text-gray-400 text-base sm:text-lg md:text-lg max-w-lg mx-auto md:mx-0">
+        <p className="mt-6 text-gray-400 text-lg max-w-lg">
           Shahi Architects delivers modern and sustainable architectural solutions with precision, creativity, and quality.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4 sm:gap-4">
+        <div className="mt-8 grid gap-4 sm:inline-flex sm:flex-wrap justify-center md:justify-start">
           <a
             href="#contact"
-            className="bg-green-400 hover:bg-green-300 text-black px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
+            className="w-full sm:w-auto bg-green-400 hover:bg-green-300 text-black px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
           >
             Schedule a Consultation
           </a>
           <a
             href="#projects"
-            className="border border-gray-500 hover:border-white px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
+            className="w-full sm:w-auto border border-gray-500 hover:border-white px-6 py-3 rounded font-semibold transition transform hover:scale-105 text-center"
           >
             View Projects
           </a>
         </div>
       </div>
 
-      {/* RIGHT IMAGE */}
-      <div className="flex-1 flex justify-center md:justify-end">
+      {/* RIGHT IMAGE / 3D PLACEHOLDER */}
+      <div className="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end">
         <img
           src="https://picsum.photos/500/400?random=31"
           alt="Architect 3D Illustration"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-xl object-cover"
+          className="w-full max-w-md rounded-lg shadow-xl"
         />
       </div>
     </section>
@@ -87,23 +107,18 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="max-w-7xl mx-auto py-16 md:py-20 px-6 md:px-10">
-      <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-10 text-center">
-        Our Services
-      </h2>
+    <section id="services" className="max-w-7xl mx-auto py-20 px-6 md:px-10">
+      <h2 className="text-3xl font-bold text-blue-400 mb-10 text-center">Our Services</h2>
 
-      <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+      <div className="flex flex-wrap justify-center gap-8">
         {services.map((s, i) => (
           <div
             key={i}
-            className="w-full sm:w-64 md:w-72 bg-gray-900 p-6 rounded-lg hover:shadow-xl transition"
+            className="w-full max-w-sm flex-1 min-w-[240px] bg-gray-900 p-6 rounded-lg hover:shadow-xl transition"
           >
-            <img
-              src={s.img}
-              className="w-full h-40 md:h-44 object-cover rounded mb-4"
-            />
+            <img src={s.img} className="w-full h-40 object-cover rounded mb-4" />
             <h3 className="font-semibold text-xl">{s.title}</h3>
-            <p className="text-gray-400 mt-2 text-sm md:text-base">
+            <p className="text-gray-400 mt-2">
               Creative, modern, and sustainable solutions for your projects.
             </p>
           </div>
@@ -123,27 +138,21 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="bg-gray-900 py-16 md:py-20 px-6 md:px-10">
-      <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-10 text-center">
-        Our Projects
-      </h2>
+    <section id="projects" className="bg-gray-900 py-20 px-6 md:px-10">
+      <h2 className="text-3xl font-bold text-blue-400 mb-10 text-center">Our Projects</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
         {projects.map((img, i) => (
-          <img
-            key={i}
-            src={img}
-            className="w-full h-60 md:h-64 object-cover rounded-lg shadow-lg"
-          />
+          <img key={i} src={img} className="w-full h-60 object-cover rounded-lg shadow-lg" />
         ))}
       </div>
     </section>
   );
 }
 
-/* ================= CONTACT ================= */
+/* ================= CONTACT (Formspree) ================= */
 function Contact() {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(""); // "" | "SUCCESS" | "ERROR"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -170,9 +179,7 @@ function Contact() {
 
   return (
     <section id="contact" className="max-w-4xl mx-auto px-6 md:px-10 py-16 md:py-20">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-blue-400">
-        Contact Us
-      </h2>
+      <h2 className="text-3xl font-bold mb-8 text-center text-blue-400">Contact Us</h2>
 
       <form
         onSubmit={handleSubmit}
@@ -206,15 +213,12 @@ function Contact() {
           Send Message
         </button>
 
+        {/* SUCCESS / ERROR MESSAGES */}
         {status === "SUCCESS" && (
-          <p className="text-green-400 mt-4 font-semibold text-center">
-            Thank you! Your message has been sent.
-          </p>
+          <p className="text-green-400 mt-4 font-semibold">Thank you! Your message has been sent.</p>
         )}
         {status === "ERROR" && (
-          <p className="text-red-400 mt-4 font-semibold text-center">
-            Oops! Something went wrong. Please try again.
-          </p>
+          <p className="text-red-400 mt-4 font-semibold">Oops! Something went wrong. Please try again.</p>
         )}
       </form>
     </section>
