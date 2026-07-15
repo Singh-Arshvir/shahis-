@@ -36,14 +36,14 @@ export default function Home() {
           <div className="flex flex-wrap gap-5 mt-10">
             <a
               className="bg-[#ff8c00] hover:bg-orange-600 px-8 py-4 rounded font-semibold text-white transition"
-              id="#contact"
+              href="#contact"
             >
               HIRE US
             </a>
 
             <a
               className="border border-white hover:border-[#ff8c00] hover:bg-[#ff8c00] px-8 py-4 rounded font-semibold text-white transition"
-              id="#project"
+              href="#project"
             >
               VIEW PROJECTS
             </a>
