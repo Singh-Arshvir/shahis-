@@ -2,17 +2,17 @@ import { ArrowUpRight } from 'lucide-react'
 
 const projects = [
   {
-    image: '/project1.png',
+    image: '/img2.jpeg',
     title: 'Luxury Villa',
     category: 'Residential',
   },
   {
-    image: '/project2.png',
+    image: '/img3.jpeg',
     title: 'Corporate Office',
     category: 'Commercial',
   },
   {
-    image: '/project3.png',
+    image: '/img4.jpeg',
     title: 'Modern Apartment',
     category: 'Architecture',
   },

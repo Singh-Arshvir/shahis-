@@ -8,7 +8,7 @@ export default function Home() {
     >
       {/* Background Image */}
       <img
-        src="./hero.png"
+        src="./img1.jpeg"
         alt="Shahi Engineers"
         className="absolute inset-0 h-full w-full object-cover"
       />
