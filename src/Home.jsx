@@ -43,7 +43,7 @@ export default function Home() {
 
             <a
               className="border border-white hover:border-[#ff8c00] hover:bg-[#ff8c00] px-8 py-4 rounded font-semibold text-white transition"
-              href="#project"
+              href="#projects"
             >
               VIEW PROJECTS
             </a>

@@ -97,7 +97,7 @@ export default function Navbar() {
             <a className="text-[#ff8c00]">HOME</a>
             <a href="about">ABOUT</a>
             <a href="#services">SERVICES</a>
-            <a href="#projets">PROJECTS</a>
+            <a href="#projects">PROJECTS</a>
             <a href="#gallery">GALLERY</a>
             <a href="#contact">CONTACT</a>
 

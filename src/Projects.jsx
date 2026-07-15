@@ -21,8 +21,8 @@ const projects = [
 export default function Projects() {
   return (
     <section
-      id="projects"
       className="bg-[#101010] text-white py-24 px-6 lg:px-10"
+      id="projects"
     >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
