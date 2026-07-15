@@ -67,9 +67,12 @@ export default function About() {
             ))}
           </div>
 
-          <button className="mt-12 border border-[#ff8c00] text-[#ff8c00] hover:bg-[#ff8c00] hover:text-white transition px-8 py-3 rounded-md font-semibold">
+          <a
+            className="mt-12 border border-[#ff8c00] text-[#ff8c00] hover:bg-[#ff8c00] hover:text-white transition px-8 py-3 rounded-md font-semibold"
+            href="#contact"
+          >
             KNOW MORE
-          </button>
+          </a>
         </div>
 
         {/* Right Side */}

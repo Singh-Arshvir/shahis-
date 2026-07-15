@@ -13,14 +13,6 @@ export default function A() {
                 alt="Shahi Engineers"
                 className="w-12 h-12"
               />
-
-              <div>
-                <h2 className="text-2xl font-bold">SHAHI</h2>
-
-                <p className="text-xs tracking-[3px] text-gray-400 uppercase">
-                  Engineers & Architects
-                </p>
-              </div>
             </div>
 
             <p className="text-gray-400 leading-7">

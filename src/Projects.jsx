@@ -82,9 +82,12 @@ export default function Projects() {
 
         {/* Button */}
         <div className="text-center mt-16">
-          <button className="border border-[#ff8c00] text-[#ff8c00] px-8 py-4 rounded-lg font-semibold hover:bg-[#ff8c00] hover:text-white transition duration-300">
+          <a
+            className="border border-[#ff8c00] text-[#ff8c00] px-8 py-4 rounded-lg font-semibold hover:bg-[#ff8c00] hover:text-white transition duration-300"
+            href="#contact"
+          >
             VIEW ALL PROJECTS
-          </button>
+          </a>
         </div>
       </div>
     </section>
