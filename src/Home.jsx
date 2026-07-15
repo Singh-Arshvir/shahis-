@@ -36,17 +36,17 @@ export default function Home() {
           <div className="flex flex-wrap gap-5 mt-10">
             <button
               className="bg-[#ff8c00] hover:bg-orange-600 px-8 py-4 rounded font-semibold text-white transition"
-              id="#contact"
+              id="contact"
             >
               HIRE US
             </button>
 
-            <button
+            <a
               className="border border-white hover:border-[#ff8c00] hover:bg-[#ff8c00] px-8 py-4 rounded font-semibold text-white transition"
-              id="#contact"
+              id="#projects"
             >
               VIEW PROJECTS
-            </button>
+            </a>
           </div>
         </div>
       </div>

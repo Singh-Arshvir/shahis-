@@ -79,7 +79,7 @@ export default function About() {
         <div className="relative">
           <div className="overflow-hidden rounded-lg">
             <img
-              src="./about.png"
+              src="./img8.jpeg"
               alt="About Shahi Engineers"
               className="w-full h-[600px] object-cover hover:scale-105 duration-500"
             />

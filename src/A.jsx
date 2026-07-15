@@ -7,14 +7,6 @@ export default function A() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <img
-                src="/logo.svg"
-                alt="Shahi Engineers"
-                className="w-12 h-12"
-              />
-            </div>
-
             <p className="text-gray-400 leading-7">
               We specialize in architecture, engineering, construction and
               interior design with a commitment to quality, innovation and
@@ -62,8 +54,6 @@ export default function A() {
             </ul>
           </div>
 
-          {/* Services */}
-
           <div>
             <h3 className="text-2xl font-semibold mb-6">Our Services</h3>
 
@@ -89,13 +79,13 @@ export default function A() {
               <div className="flex gap-3">
                 <Phone className="text-[#ff8c00]" size={20} />
 
-                <p className="text-gray-400">+91 98765 43210</p>
+                <p className="text-gray-400">+91 8872088177</p>
               </div>
 
               <div className="flex gap-3">
                 <Mail className="text-[#ff8c00]" size={20} />
 
-                <p className="text-gray-400">info@shahiengineers.com</p>
+                <p className="text-gray-400">er.guri31@gmail.com</p>
               </div>
 
               <div className="flex gap-3">

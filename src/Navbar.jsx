@@ -95,11 +95,11 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-5 text-white">
             <a className="text-[#ff8c00]">HOME</a>
-            <a>ABOUT</a>
-            <a>SERVICES</a>
-            <a>PROJECTS</a>
-            <a>GALLERY</a>
-            <a>CONTACT</a>
+            <a href="about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#projets">PROJECTS</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#contact">CONTACT</a>
 
             <button className="mt-2 bg-[#ff8c00] py-3 rounded font-semibold">
               HIRE US
