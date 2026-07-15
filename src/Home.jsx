@@ -34,16 +34,16 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap gap-5 mt-10">
-            <button
+            <a
               className="bg-[#ff8c00] hover:bg-orange-600 px-8 py-4 rounded font-semibold text-white transition"
-              id="contact"
+              id="#contact"
             >
               HIRE US
-            </button>
+            </a>
 
             <a
               className="border border-white hover:border-[#ff8c00] hover:bg-[#ff8c00] px-8 py-4 rounded font-semibold text-white transition"
-              id="#projects"
+              id="#project"
             >
               VIEW PROJECTS
             </a>
