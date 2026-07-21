@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
     <About />
     <Services />
     <Projects />
-    <Gallery></Gallery>
+    <Gallery />
     <Contact />
     <Footer />
   </StrictMode>

@@ -1,180 +1,185 @@
-// src/Gallery.jsx
-
-import { useState } from 'react'
+import { useState } from "react";
 
 const galleryData = [
   {
-    id: 1,
-    title: 'Modern Luxury Villa',
-    category: 'Residential',
-    image: '/img1.jpeg',
+    title: "Modern Villa",
+    category: "Residential",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85",
   },
   {
-    id: 2,
-    title: 'Corporate Office',
-    category: 'Commercial',
-    image: 'img2.jpeg',
+    title: "Urban Office",
+    category: "Commercial",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=85",
   },
   {
-    id: 3,
-    title: 'Elegant Living Room',
-    category: 'Interior',
-    image: 'img3.jpeg',
+    title: "Contemporary Interior",
+    category: "Interior",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
   },
   {
-    id: 4,
-    title: 'Contemporary Kitchen',
-    category: 'Interior',
-    image: 'img4.jpeg',
+    title: "Luxury Residence",
+    category: "Residential",
+    image:
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
   },
   {
-    id: 5,
-    title: 'Luxury Farmhouse',
-    category: 'Residential',
-    image: 'img5.jpeg',
+    title: "Modern Workspace",
+    category: "Commercial",
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85",
   },
   {
-    id: 6,
-    title: 'Commercial Complex',
-    category: 'Commercial',
-    image: 'img6.jpeg',
+    title: "Architectural Details",
+    category: "Design",
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85",
   },
-  {
-    id: 7,
-    title: 'Landscape Design',
-    category: 'Landscape',
-    image: 'img7.jpeg',
-  },
-  {
-    id: 8,
-    title: 'Construction Site',
-    category: 'Construction',
-    image: 'img8.jpeg',
-  },
-]
+];
 
-export default function Gallery() {
-  const [category, setCategory] = useState('All')
-  const [selectedImage, setSelectedImage] = useState(null)
+function Gallery() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  const categories = [
-    'All',
-    'Residential',
-    'Commercial',
-    'Interior',
-    'Landscape',
-    'Construction',
-  ]
+  const filters = [
+    "All",
+    "Residential",
+    "Commercial",
+    "Interior",
+    "Design",
+  ];
 
-  const filtered =
-    category === 'All'
+  const filteredImages =
+    activeFilter === "All"
       ? galleryData
-      : galleryData.filter((item) => item.category === category)
+      : galleryData.filter(
+          (item) => item.category === activeFilter
+        );
 
   return (
-    <section id="gallery" className="bg-black text-white py-5">
-      <div className="container">
-        {/* Heading */}
-        <div className="text-center mb-5">
-          <h6 className="text-warning text-uppercase fw-bold">Our Portfolio</h6>
+    <section id="gallery" className="gallery-section">
 
-          <h2 className="fw-bold display-5">
-            Project <span className="text-warning">Gallery</span>
-          </h2>
+      <div className="container-fluid px-lg-5">
 
-          <p className="text-secondary mx-auto" style={{ maxWidth: '700px' }}>
-            Explore our collection of residential, commercial and interior
-            projects designed with precision, creativity and engineering
-            excellence.
+        {/* Section Header */}
+        <div className="gallery-header">
+
+          <div>
+            <p className="gallery-label">
+              OUR WORK
+            </p>
+
+            <h2 className="gallery-title">
+              Spaces that <span>inspire.</span>
+            </h2>
+          </div>
+
+          <p className="gallery-description">
+            A collection of spaces shaped by thoughtful design,
+            precision, and architectural vision.
           </p>
+
         </div>
 
-        {/* Filter Buttons */}
-        <div className="d-flex flex-wrap justify-content-center gap-3 mb-5">
-          {categories.map((cat) => (
+        {/* Category Filters */}
+        <div className="gallery-filters">
+
+          {filters.map((filter) => (
             <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              className={`btn ${
-                category === cat ? 'btn-warning' : 'btn-outline-warning'
-              }`}
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={
+                activeFilter === filter ? "active" : ""
+              }
             >
-              {cat}
+              {filter}
             </button>
           ))}
+
         </div>
 
-        {/* Gallery */}
-        <div className="row g-4">
-          {filtered.map((item) => (
-            <div className="col-lg-4 col-md-6" key={item.id}>
-              <div
-                className="position-relative overflow-hidden rounded shadow"
-                style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedImage(item)}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="img-fluid w-100"
-                  style={{
-                    height: '300px',
-                    objectFit: 'cover',
-                    transition: '.5s',
-                  }}
-                />
+        {/* Gallery Grid */}
+        <div className="gallery-grid">
 
-                <div
-                  className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4"
-                  style={{
-                    background:
-                      'linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.1))',
-                  }}
-                >
-                  <small className="text-warning">{item.category}</small>
+          {filteredImages.map((item, index) => (
 
-                  <h5 className="fw-bold">{item.title}</h5>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            <div
+              key={item.title}
+              className={`gallery-item gallery-item-${index + 1}`}
+              onClick={() => setSelectedImage(item)}
+            >
 
-        {/* Lightbox */}
-        {selectedImage && (
-          <div
-            className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-            style={{
-              background: 'rgba(0,0,0,.92)',
-              zIndex: 9999,
-            }}
-            onClick={() => setSelectedImage(null)}
-          >
-            <div className="text-center">
               <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                className="img-fluid rounded"
-                style={{
-                  maxHeight: '80vh',
-                  maxWidth: '90vw',
-                }}
+                src={item.image}
+                alt={item.title}
               />
 
-              <h3 className="text-warning mt-4">{selectedImage.title}</h3>
+              <div className="gallery-overlay">
 
-              <p>{selectedImage.category}</p>
+                <div>
+                  <small>
+                    {item.category}
+                  </small>
 
-              <button
-                className="btn btn-warning mt-2"
-                onClick={() => setSelectedImage(null)}
-              >
-                Close
-              </button>
+                  <h3>
+                    {item.title}
+                  </h3>
+                </div>
+
+                <span>
+                  ↗
+                </span>
+
+              </div>
+
             </div>
-          </div>
-        )}
+
+          ))}
+
+        </div>
+
       </div>
+
+      {/* Image Lightbox */}
+      {selectedImage && (
+
+        <div
+          className="gallery-lightbox"
+          onClick={() => setSelectedImage(null)}
+        >
+
+          <button
+            className="close-btn"
+            onClick={() => setSelectedImage(null)}
+          >
+            ×
+          </button>
+
+          <img
+            src={selectedImage.image}
+            alt={selectedImage.title}
+          />
+
+          <div className="lightbox-title">
+
+            <small>
+              {selectedImage.category}
+            </small>
+
+            <h3>
+              {selectedImage.title}
+            </h3>
+
+          </div>
+
+        </div>
+
+      )}
+
     </section>
-  )
+  );
 }
+
+export default Gallery;
