@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer">
-            <img src="/logo.svg" alt="Shahi Engineers" className="w-11 h-11" />
+            <img src="/logo.jpeg" alt="Shahi Engineers" className="w-11 h-11" />
 
             <div>
               <h1 className="text-2xl font-bold text-white tracking-wide">
