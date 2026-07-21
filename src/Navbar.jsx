@@ -26,13 +26,16 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center gap-8">
             <a
-              href="#"
+              href="#home"
               className="text-[#ff8c00] font-semibold text-sm transition"
             >
               HOME
             </a>
 
-            <a href="#" className="text-white hover:text-[#ff8c00] text-sm">
+            <a
+              href="#about"
+              className="text-white hover:text-[#ff8c00] text-sm"
+            >
               ABOUT
             </a>
 
@@ -58,15 +61,24 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a href="#" className="text-white hover:text-[#ff8c00] text-sm">
+            <a
+              href="projects"
+              className="text-white hover:text-[#ff8c00] text-sm"
+            >
               PROJECTS
             </a>
 
-            <a href="#" className="text-white hover:text-[#ff8c00] text-sm">
+            <a
+              href="#gallery"
+              className="text-white hover:text-[#ff8c00] text-sm"
+            >
               GALLERY
             </a>
 
-            <a href="#" className="text-white hover:text-[#ff8c00] text-sm">
+            <a
+              href="#Contact"
+              className="text-white hover:text-[#ff8c00] text-sm"
+            >
               CONTACT
             </a>
           </nav>

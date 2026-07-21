@@ -81,9 +81,12 @@ export default function Services() {
 
               <p className="text-gray-400 leading-7">{service.description}</p>
 
-              <button className="mt-8 text-[#ff8c00] font-semibold hover:translate-x-2 transition">
+              <a
+                className="mt-8 text-[#ff8c00] font-semibold hover:translate-x-2 transition"
+                href="#gallery"
+              >
                 Learn More →
-              </button>
+              </a>
             </div>
           ))}
         </div>
