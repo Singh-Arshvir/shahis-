@@ -5,7 +5,7 @@ function SEO({
   description = 'Shahi Engineers & Architects provides professional architecture, structural engineering, interior design, construction planning, and innovative building solutions.',
   keywords = 'Shahi Engineers, Shahi Architects, architects in Punjab, civil engineers in Punjab, architecture firm, structural engineering, interior design, building design, construction planning',
   image = '/og-image.jpg',
-  url = 'https://yourwebsite.com',
+  url = 'https://shahis.vercel.app.com',
 }) {
   return (
     <Helmet>
