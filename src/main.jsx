@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async'
 import Footer from './A.jsx'
 import About from './About.jsx'
 import './App.css'
@@ -9,16 +10,20 @@ import Home from './Home.jsx'
 import './index.css'
 import Navbar from './Navbar.jsx'
 import Projects from './Projects.jsx'
+import SEO from './SEO'
 import Services from './Services.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navbar />
-    <Home />
-    <About />
-    <Services />
-    <Projects />
-    <Gallery />
-    <Contact />
-    <Footer />
+    <SEO />
+    <HelmetProvider>
+      <Navbar />
+      <Home />
+      <About />
+      <Services />
+      <Projects />
+      <Gallery />
+      <Contact />
+      <Footer />
+    </HelmetProvider>
   </StrictMode>
 )
