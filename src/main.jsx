@@ -10,7 +10,7 @@ import Home from './Home.jsx'
 import './index.css'
 import Navbar from './Navbar.jsx'
 import Projects from './Projects.jsx'
-import SEO from './SEO.jsx'
+import SEO from './Seo.jsx'
 import Services from './Services.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
