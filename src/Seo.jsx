@@ -57,7 +57,7 @@ function SEO({
           name: 'Shahi Engineers & Architects',
           description,
           url,
-          logo: `${url}/logo.png`,
+          logo: `${url}/logo.jpeg`,
           image: `${url}/og-image.jpg`,
           areaServed: 'Punjab, India',
           knowsAbout: [
